@@ -1,31 +1,172 @@
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="en">
 <head>
-  <base target="_blank">
   <meta charset="UTF-8" />
-  <title>Daniel's Portfolio</title>
-  <link rel="shortcut icon" type="image/png" href="assets/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Daniel Thompson - Software Developer Portfolio">
+  <meta name="author" content="Daniel Thompson">
+  <title>Daniel Thompson | Portfolio</title>
+  <link rel="shortcut icon" type="image/png" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Montserrat:wght@300;400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous" type="text/css">
-  <!-- remember, jQuery is completely optional -->
-  <!-- <script type='text/javascript' src='js/jquery-1.11.1.min.js'></script> -->
   <script type="text/javascript" src="js/jquery.particleground.js"></script>
-  <script type="text/javascript" src="js/demo.js"></script>
+  <script type="text/javascript" src="js/demo.js" defer></script>
 </head>
 
 <body>
 
-<div id="particles">
-  <div id="intro">
-      <h2 style="font-family: 'Syncopate', sans-serif; font-weight: 10;">Daniel Thompson</h2>
-        <hr style="width: 50%; background-color: #E83951; border-color: #E83951;">
-    <a href="https://www.linkedin.com/in/danielhowardthompson/" style="color: white;"><i class="fab fa-linkedin" style="font-size: 2em;"></i></a>
-    &nbsp
-    <a href="https://github.com/Damknee/" style="color: white;"><i class="fab fa-github" style="font-size: 2em;"></i></a>
-    &nbsp
+<!-- Navigation -->
+<nav id="navbar">
+  <div class="nav-container">
+    <a href="#home" class="nav-logo">DT</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
   </div>
-</div>
+</nav>
+
+<!-- Hero Section -->
+<section id="home">
+  <div id="particles">
+    <div id="intro">
+      <h1>Daniel Thompson</h1>
+      <hr class="divider">
+      <p class="tagline">Software Developer</p>
+      <div class="hero-links">
+        <a href="https://www.linkedin.com/in/danielhowardthompson/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+        <a href="https://github.com/Damknee/" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
+          <i class="fab fa-github" aria-hidden="true"></i>
+        </a>
+      </div>
+      <a href="#about" class="scroll-down" aria-label="Scroll to about section">
+        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about">
+  <div class="container">
+    <h2 class="section-title">About Me</h2>
+    <div class="about-content">
+      <div class="about-text">
+        <p>Hi, I'm Daniel — a passionate software developer who loves building clean, efficient, and user-friendly applications. I enjoy tackling complex problems and turning ideas into reality through code.</p>
+        <p>When I'm not coding, I'm exploring new technologies and continuously learning to stay at the cutting edge of software development.</p>
+        <a href="https://www.linkedin.com/in/danielhowardthompson/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">View LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills">
+  <div class="container">
+    <h2 class="section-title">Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <i class="fab fa-js-square" aria-hidden="true"></i>
+        <h3>JavaScript</h3>
+      </div>
+      <div class="skill-card">
+        <i class="fab fa-python" aria-hidden="true"></i>
+        <h3>Python</h3>
+      </div>
+      <div class="skill-card">
+        <i class="fab fa-html5" aria-hidden="true"></i>
+        <h3>HTML5</h3>
+      </div>
+      <div class="skill-card">
+        <i class="fab fa-css3-alt" aria-hidden="true"></i>
+        <h3>CSS3</h3>
+      </div>
+      <div class="skill-card">
+        <i class="fab fa-react" aria-hidden="true"></i>
+        <h3>React</h3>
+      </div>
+      <div class="skill-card">
+        <i class="fab fa-git-alt" aria-hidden="true"></i>
+        <h3>Git</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects">
+  <div class="container">
+    <h2 class="section-title">Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-header">
+          <i class="fas fa-code" aria-hidden="true"></i>
+        </div>
+        <h3>Portfolio Website</h3>
+        <p>A personal portfolio built with HTML, CSS, and JavaScript featuring an interactive particle animation background and smooth scroll navigation.</p>
+        <div class="project-tags">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JavaScript</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/Damknee/Portfolio" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-github" aria-hidden="true"></i> Code
+          </a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-header">
+          <i class="fas fa-laptop-code" aria-hidden="true"></i>
+        </div>
+        <h3>More Coming Soon</h3>
+        <p>More projects are on the way. Check back soon or visit my GitHub to see what I'm currently working on.</p>
+        <div class="project-tags">
+          <span>In Progress</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/Damknee/" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-github" aria-hidden="true"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact">
+  <div class="container">
+    <h2 class="section-title">Get In Touch</h2>
+    <p class="contact-text">I'm open to new opportunities and collaborations. Feel free to reach out!</p>
+    <div class="contact-links">
+      <a href="https://www.linkedin.com/in/danielhowardthompson/" class="contact-btn" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn
+      </a>
+      <a href="https://github.com/Damknee/" class="contact-btn" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-github" aria-hidden="true"></i> GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2024 Daniel Thompson. All rights reserved.</p>
+</footer>
 
 </body>
 </html>
