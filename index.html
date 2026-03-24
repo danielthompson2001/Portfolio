@@ -1,172 +1,265 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Daniel Thompson - Software Developer Portfolio">
-  <meta name="author" content="Daniel Thompson">
-  <title>Daniel Thompson | Portfolio</title>
-  <link rel="shortcut icon" type="image/png" href="assets/favicon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Montserrat:wght@300;400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/style.css" />
-  <script type="text/javascript" src="js/jquery.particleground.js"></script>
-  <script type="text/javascript" src="js/demo.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daniel Thompson</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0a0a0f; color: #c8c8d4; font-family: 'JetBrains Mono', monospace; min-height: 100vh; overflow-x: hidden; }
+  .scanline { position: fixed; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,255,180,0.012) 2px, rgba(0,255,180,0.012) 4px); z-index: 100; }
+  .grid-bg { position: fixed; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; background-image: linear-gradient(rgba(0,255,180,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,180,0.04) 1px, transparent 1px); background-size: 48px 48px; z-index: 0; }
+  .site { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; padding: 0 24px; }
+  /* NAV */
+  nav { display: flex; align-items: center; justify-content: space-between; padding: 28px 0 24px; border-bottom: 1px solid rgba(0,255,180,0.12); }
+  .nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 18px; color: #00ffb4; letter-spacing: -0.5px; }
+  .nav-logo span { color: #c8c8d4; }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { font-size: 12px; color: #6c6c84; text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; cursor: pointer; }
+  .nav-links a:hover, .nav-links a.active { color: #00ffb4; }
+  /* SECTIONS */
+  section { display: none; animation: fadeIn 0.35s ease; }
+  section.visible { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  /* HERO */
+  .hero { padding: 72px 0 56px; }
+  .hero-tag { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; color: #00ffb4; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 24px; }
+  .hero-tag::before { content: ''; display: block; width: 6px; height: 6px; border-radius: 50%; background: #00ffb4; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+  .hero h1 { font-family: 'Syne', sans-serif; font-size: clamp(38px, 7vw, 68px); font-weight: 800; line-height: 1.0; color: #f0f0f8; letter-spacing: -2px; margin-bottom: 8px; }
+  .hero h1 .accent { color: #00ffb4; }
+  .hero-sub { font-family: 'Syne', sans-serif; font-size: clamp(16px, 3vw, 24px); font-weight: 400; color: #6c6c84; margin-bottom: 32px; letter-spacing: -0.5px; }
+  .hero-desc { font-size: 13px; line-height: 1.8; color: #9090a8; max-width: 540px; margin-bottom: 40px; }
+  .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-primary { background: #00ffb4; color: #0a0a0f; border: none; padding: 11px 24px; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; cursor: pointer; transition: all 0.2s; }
+  .btn-primary:hover { background: #00e0a0; transform: translateY(-1px); }
+  .btn-ghost { background: transparent; color: #00ffb4; border: 1px solid rgba(0,255,180,0.35); padding: 11px 24px; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.06em; cursor: pointer; transition: all 0.2s; }
+  .btn-ghost:hover { border-color: #00ffb4; background: rgba(0,255,180,0.05); }
+  .hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 56px; border: 1px solid rgba(0,255,180,0.12); background: rgba(0,255,180,0.12); }
+  .stat { background: #0a0a0f; padding: 20px; text-align: center; }
+  .stat-val { font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 800; color: #f0f0f8; display: block; }
+  .stat-lbl { font-size: 10px; color: #6c6c84; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 4px; display: block; }
+  /* ABOUT */
+  .about { padding: 56px 0; }
+  .section-header { display: flex; align-items: center; gap: 16px; margin-bottom: 40px; }
+  .section-header h2 { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700; color: #00ffb4; letter-spacing: 0.14em; text-transform: uppercase; }
+  .section-header::after { content: ''; flex: 1; height: 1px; background: rgba(0,255,180,0.12); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .about-block { border: 1px solid rgba(0,255,180,0.1); padding: 24px; position: relative; }
+  .about-block::before { content: ''; position: absolute; top: 0; left: 0; width: 32px; height: 2px; background: #00ffb4; }
+  .about-block h3 { font-size: 11px; font-weight: 700; color: #00ffb4; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
+  .about-block p { font-size: 13px; line-height: 1.8; color: #9090a8; }
+  .skills-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .skill-tag { font-size: 11px; padding: 4px 10px; border: 1px solid rgba(0,255,180,0.2); color: #00ffb4; letter-spacing: 0.05em; }
+  /* EXPERIENCE */
+  .experience { padding: 56px 0; }
+  .exp-tabs { display: flex; gap: 0; margin-bottom: 32px; border-bottom: 1px solid rgba(0,255,180,0.12); }
+  .exp-tab { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #6c6c84; padding: 10px 20px; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: all 0.2s; background: none; border-top: none; border-left: none; border-right: none; font-family: 'JetBrains Mono', monospace; }
+  .exp-tab:hover { color: #c8c8d4; }
+  .exp-tab.active { color: #00ffb4; border-bottom-color: #00ffb4; }
+  .exp-panel { display: none; }
+  .exp-panel.visible { display: block; animation: fadeIn 0.3s ease; }
+  .exp-item { display: grid; grid-template-columns: 160px 1fr; gap: 24px; padding: 28px 0; border-bottom: 1px solid rgba(0,255,180,0.08); }
+  .exp-item:first-of-type { border-top: 1px solid rgba(0,255,180,0.08); }
+  .exp-year { font-size: 11px; color: #6c6c84; padding-top: 3px; letter-spacing: 0.05em; line-height: 1.6; }
+  .exp-year .current { display: inline-block; background: rgba(0,255,180,0.12); color: #00ffb4; padding: 2px 8px; font-size: 10px; margin-top: 6px; letter-spacing: 0.08em; }
+  .exp-role { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 700; color: #f0f0f8; margin-bottom: 4px; }
+  .exp-company { font-size: 12px; color: #00ffb4; margin-bottom: 8px; }
+  .exp-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+  .exp-tag { font-size: 10px; padding: 2px 8px; border: 1px solid rgba(0,255,180,0.15); color: #6c6c84; letter-spacing: 0.06em; }
+  .exp-desc { font-size: 13px; line-height: 1.8; color: #9090a8; }
+  /* CONTACT */
+  .contact { padding: 56px 0 80px; }
+  .contact-box { border: 1px solid rgba(0,255,180,0.15); padding: 48px; text-align: center; position: relative; overflow: hidden; }
+  .contact-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, #00ffb4, transparent); }
+  .contact-box h2 { font-family: 'Syne', sans-serif; font-size: 36px; font-weight: 800; color: #f0f0f8; letter-spacing: -1px; margin-bottom: 12px; }
+  .contact-box p { font-size: 13px; color: #6c6c84; margin-bottom: 32px; line-height: 1.7; }
+  .contact-links { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+  .contact-link { display: flex; align-items: center; gap: 8px; font-size: 12px; color: #9090a8; text-decoration: none; border: 1px solid rgba(0,255,180,0.12); padding: 10px 18px; transition: all 0.2s; }
+  .contact-link:hover { border-color: #00ffb4; color: #00ffb4; }
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .exp-item { grid-template-columns: 1fr; gap: 8px; }
+    .nav-links { gap: 16px; }
+    .contact-box { padding: 32px 20px; }
+    .hero-stats { grid-template-columns: repeat(3, 1fr); }
+  }
+</style>
 </head>
-
 <body>
-
-<!-- Navigation -->
-<nav id="navbar">
-  <div class="nav-container">
-    <a href="#home" class="nav-logo">DT</a>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
+<div class="scanline"></div>
+<div class="grid-bg"></div>
+<div class="site">
+  <nav>
+    <div class="nav-logo">Daniel<span>.Thompson</span></div>
+    <ul class="nav-links">
+      <li><a href="#" class="active" data-section="home">home</a></li>
+      <li><a href="#" data-section="about">about</a></li>
+      <li><a href="#" data-section="experience">experience</a></li>
+      <li><a href="#" data-section="contact">contact</a></li>
     </ul>
-  </div>
-</nav>
-
-<!-- Hero Section -->
-<section id="home">
-  <div id="particles">
-    <div id="intro">
-      <h1>Daniel Thompson</h1>
-      <hr class="divider">
-      <p class="tagline">Software Developer</p>
-      <div class="hero-links">
-        <a href="https://www.linkedin.com/in/danielhowardthompson/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
-          <i class="fab fa-linkedin" aria-hidden="true"></i>
-        </a>
-        <a href="https://github.com/Damknee/" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
-          <i class="fab fa-github" aria-hidden="true"></i>
-        </a>
+  </nav>
+  <!-- HOME -->
+  <section id="home" class="visible">
+    <div class="hero">
+      <div class="hero-tag">Open to opportunities</div>
+      <h1>Daniel<br><span class="accent">Thompson</span></h1>
+      <div class="hero-sub">Customer Experience &amp; Tech Support</div>
+      <p class="hero-desc">Auckland-based customer experience professional with three NZ Diplomas in Information Technology from Techtorium. I bridge technical complexity and human clarity — making the hard stuff feel easy.</p>
+      <div class="hero-ctas">
+        <button class="btn-primary" onclick="showSection('contact')">get in touch</button>
+        <button class="btn-ghost" onclick="showSection('experience')">view experience →</button>
       </div>
-      <a href="#about" class="scroll-down" aria-label="Scroll to about section">
-        <i class="fas fa-chevron-down" aria-hidden="true"></i>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- About Section -->
-<section id="about">
-  <div class="container">
-    <h2 class="section-title">About Me</h2>
-    <div class="about-content">
-      <div class="about-text">
-        <p>Hi, I'm Daniel — a passionate software developer who loves building clean, efficient, and user-friendly applications. I enjoy tackling complex problems and turning ideas into reality through code.</p>
-        <p>When I'm not coding, I'm exploring new technologies and continuously learning to stay at the cutting edge of software development.</p>
-        <a href="https://www.linkedin.com/in/danielhowardthompson/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">View LinkedIn</a>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-val">3x</span><span class="stat-lbl">NZ Diplomas</span></div>
+        <div class="stat"><span class="stat-val">NZ</span><span class="stat-lbl">Auckland based</span></div>
+        <div class="stat"><span class="stat-val">∞</span><span class="stat-lbl">problems solved</span></div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- Skills Section -->
-<section id="skills">
-  <div class="container">
-    <h2 class="section-title">Skills</h2>
-    <div class="skills-grid">
-      <div class="skill-card">
-        <i class="fab fa-js-square" aria-hidden="true"></i>
-        <h3>JavaScript</h3>
-      </div>
-      <div class="skill-card">
-        <i class="fab fa-python" aria-hidden="true"></i>
-        <h3>Python</h3>
-      </div>
-      <div class="skill-card">
-        <i class="fab fa-html5" aria-hidden="true"></i>
-        <h3>HTML5</h3>
-      </div>
-      <div class="skill-card">
-        <i class="fab fa-css3-alt" aria-hidden="true"></i>
-        <h3>CSS3</h3>
-      </div>
-      <div class="skill-card">
-        <i class="fab fa-react" aria-hidden="true"></i>
-        <h3>React</h3>
-      </div>
-      <div class="skill-card">
-        <i class="fab fa-git-alt" aria-hidden="true"></i>
-        <h3>Git</h3>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Projects Section -->
-<section id="projects">
-  <div class="container">
-    <h2 class="section-title">Projects</h2>
-    <div class="projects-grid">
-      <div class="project-card">
-        <div class="project-header">
-          <i class="fas fa-code" aria-hidden="true"></i>
+  </section>
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about">
+      <div class="section-header"><h2>// about</h2></div>
+      <div class="about-grid">
+        <div class="about-block">
+          <h3>Background</h3>
+          <p>I'm a customer experience specialist based in Auckland, NZ. I bridge the gap between technical complexity and human clarity — making the hard stuff feel easy for customers.</p>
         </div>
-        <h3>Portfolio Website</h3>
-        <p>A personal portfolio built with HTML, CSS, and JavaScript featuring an interactive particle animation background and smooth scroll navigation.</p>
-        <div class="project-tags">
-          <span>HTML</span>
-          <span>CSS</span>
-          <span>JavaScript</span>
+        <div class="about-block">
+          <h3>Approach</h3>
+          <p>Every interaction is an opportunity. I lead with empathy, resolve with expertise, and always leave people feeling looked after — not just handled.</p>
         </div>
-        <div class="project-links">
-          <a href="https://github.com/Damknee/Portfolio" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-github" aria-hidden="true"></i> Code
-          </a>
+        <div class="about-block">
+          <h3>Skills</h3>
+          <div class="skills-list">
+            <span class="skill-tag">Customer Support</span>
+            <span class="skill-tag">Telecom</span>
+            <span class="skill-tag">Technical Troubleshooting</span>
+            <span class="skill-tag">Retention</span>
+            <span class="skill-tag">Microsoft Azure</span>
+            <span class="skill-tag">AWS</span>
+            <span class="skill-tag">Systems Administration</span>
+            <span class="skill-tag">AI Tools</span>
+            <span class="skill-tag">HTML</span>
+          </div>
         </div>
-      </div>
-      <div class="project-card">
-        <div class="project-header">
-          <i class="fas fa-laptop-code" aria-hidden="true"></i>
-        </div>
-        <h3>More Coming Soon</h3>
-        <p>More projects are on the way. Check back soon or visit my GitHub to see what I'm currently working on.</p>
-        <div class="project-tags">
-          <span>In Progress</span>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/Damknee/" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-github" aria-hidden="true"></i> GitHub
-          </a>
+        <div class="about-block">
+          <h3>Interests</h3>
+          <div class="skills-list">
+            <span class="skill-tag">Photography</span>
+            <span class="skill-tag">Running</span>
+            <span class="skill-tag">Cooking</span>
+            <span class="skill-tag">Finance</span>
+            <span class="skill-tag">NZ Telecoms</span>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- Contact Section -->
-<section id="contact">
-  <div class="container">
-    <h2 class="section-title">Get In Touch</h2>
-    <p class="contact-text">I'm open to new opportunities and collaborations. Feel free to reach out!</p>
-    <div class="contact-links">
-      <a href="https://www.linkedin.com/in/danielhowardthompson/" class="contact-btn" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn
-      </a>
-      <a href="https://github.com/Damknee/" class="contact-btn" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-github" aria-hidden="true"></i> GitHub
-      </a>
+  </section>
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="experience">
+      <div class="section-header"><h2>// experience &amp; education</h2></div>
+      <div class="exp-tabs">
+        <button class="exp-tab active" data-panel="work">Work</button>
+        <button class="exp-tab" data-panel="education">Education</button>
+      </div>
+      <div class="exp-panel visible" id="panel-work">
+        <div class="exp-item">
+          <div class="exp-year">2023 – present<div class="current">current</div></div>
+          <div>
+            <div class="exp-role">Customer Support Specialist</div>
+            <div class="exp-company">Zeronet · Auckland, NZ</div>
+            <div class="exp-tags">
+              <span class="exp-tag">Retention</span>
+              <span class="exp-tag">Billing</span>
+              <span class="exp-tag">Technical Troubleshooting</span>
+              <span class="exp-tag">Knowledge Base</span>
+              <span class="exp-tag">AI Tools</span>
+            </div>
+            <p class="exp-desc">Handling billing disputes, cancellations, retention, and technical troubleshooting for a NZ broadband and mobile provider. Built internal knowledge base articles and care portal content. Developed AI-assisted support tools using the Claude API.</p>
+          </div>
+        </div>
+      </div>
+      <div class="exp-panel" id="panel-education">
+        <div class="exp-item">
+          <div class="exp-year">Feb 2022 – Dec 2022</div>
+          <div>
+            <div class="exp-role">NZ Diploma in Cloud Management</div>
+            <div class="exp-company">Techtorium · Information Technology</div>
+            <div class="exp-tags">
+              <span class="exp-tag">Microsoft Azure</span>
+              <span class="exp-tag">Amazon Web Services</span>
+            </div>
+            <p class="exp-desc">Cloud infrastructure and management fundamentals across Azure and AWS platforms. Focused on deployment, scalability, and cloud service architecture.</p>
+          </div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-year">Feb 2021 – Dec 2021</div>
+          <div>
+            <div class="exp-role">NZ Diploma in Systems Administration</div>
+            <div class="exp-company">Techtorium · Information Technology</div>
+            <div class="exp-tags">
+              <span class="exp-tag">System Administration</span>
+              <span class="exp-tag">Networking</span>
+            </div>
+            <p class="exp-desc">Systems administration, server management, and network infrastructure. Developed skills in maintaining and configuring enterprise IT environments.</p>
+          </div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-year">Feb 2020 – Dec 2020</div>
+          <div>
+            <div class="exp-role">NZ Diploma in IT Technical Support</div>
+            <div class="exp-company">Techtorium · Information Technology</div>
+            <div class="exp-tags">
+              <span class="exp-tag">Technical Support</span>
+              <span class="exp-tag">Hardware</span>
+              <span class="exp-tag">Troubleshooting</span>
+            </div>
+            <p class="exp-desc">Foundation diploma in IT technical support — hardware, software, and end-user support. The starting point for a career built on solving technical problems for real people.</p>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
-
-<!-- Footer -->
-<footer>
-  <p>&copy; 2024 Daniel Thompson. All rights reserved.</p>
-</footer>
-
+  </section>
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact">
+      <div class="section-header"><h2>// contact</h2></div>
+      <div class="contact-box">
+        <h2>Let's talk.</h2>
+        <p>Open to customer service, technical support,<br>and telecoms-adjacent opportunities across New Zealand.</p>
+        <div class="contact-links">
+          <a class="contact-link" href="https://www.linkedin.com/in/danielhowardthompson/" target="_blank">in LinkedIn</a>
+          <a class="contact-link" href="https://github.com/Damknee/" target="_blank">gh GitHub</a>
+          <span class="contact-link">↗ Auckland, NZ</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<script>
+  function showSection(id) {
+    document.querySelectorAll('section').forEach(s => s.classList.remove('visible'));
+    document.getElementById(id).classList.add('visible');
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.classList.toggle('active', a.dataset.section === id);
+    });
+  }
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', e => { e.preventDefault(); showSection(a.dataset.section); });
+  });
+  document.querySelectorAll('.exp-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.exp-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.exp-panel').forEach(p => p.classList.remove('visible'));
+      tab.classList.add('active');
+      document.getElementById('panel-' + tab.dataset.panel).classList.add('visible');
+    });
+  });
+</script>
 </body>
 </html>
