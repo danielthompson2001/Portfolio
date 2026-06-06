@@ -1,31 +1,218 @@
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="en">
 <head>
-  <base target="_blank">
-  <meta charset="UTF-8" />
-  <title>Daniel's Portfolio</title>
-  <link rel="shortcut icon" type="image/png" href="assets/favicon.png">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous" type="text/css">
-  <!-- remember, jQuery is completely optional -->
-  <!-- <script type='text/javascript' src='js/jquery-1.11.1.min.js'></script> -->
-  <script type="text/javascript" src="js/jquery.particleground.js"></script>
-  <script type="text/javascript" src="js/demo.js"></script>
+  <title>Daniel Thompson — IT Engineer</title>
+  <meta name="description" content="Daniel Thompson — IT Engineer building reliable systems, self-hosted tools, and thoughtful software.">
+  <meta name="theme-color" content="#080812">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Syne:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-<div id="particles">
-  <div id="intro">
-      <h2 style="font-family: 'Syncopate', sans-serif; font-weight: 10;">Daniel Thompson</h2>
-        <hr style="width: 50%; background-color: #E83951; border-color: #E83951;">
-    <a href="https://www.linkedin.com/in/danielhowardthompson/" style="color: white;"><i class="fab fa-linkedin" style="font-size: 2em;"></i></a>
-    &nbsp
-    <a href="https://github.com/Damknee/" style="color: white;"><i class="fab fa-github" style="font-size: 2em;"></i></a>
-    &nbsp
-  </div>
-</div>
+  <header class="site-header" id="top">
+    <a class="logo" href="#top" aria-label="Daniel Thompson — home">DT</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
+  <section class="hero" aria-label="Introduction">
+    <div id="particles" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <p class="eyebrow">IT Engineer</p>
+      <h1>Daniel Thompson</h1>
+      <p class="hero-lead">
+        I build and operate reliable infrastructure, self-hosted platforms,
+        and practical software — with a bias toward systems that stay maintainable.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#projects">View projects</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/danielhowardthompson/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
+      <div class="hero-links" aria-label="Social links">
+        <a href="https://github.com/Damknee/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/danielhowardthompson/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="mailto:danielthompson5611@gmail.com" aria-label="Email">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        </a>
+      </div>
+    </div>
+    <a class="scroll-hint" href="#about" aria-label="Scroll to about section">
+      <span>Scroll</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16l-6-6h12z"/></svg>
+    </a>
+  </section>
+
+  <main id="main">
+    <section class="section" id="about">
+      <div class="section-inner">
+        <div class="section-header">
+          <p class="eyebrow">About</p>
+          <h2>Engineering with clarity and ownership</h2>
+        </div>
+        <div class="about-grid">
+          <p>
+            I'm an IT engineer focused on infrastructure that teams can actually run —
+            from networking and automation to self-hosted services and internal tooling.
+            I care about documentation, observability, and leaving systems easier to
+            maintain than I found them.
+          </p>
+          <ul class="about-highlights">
+            <li>
+              <strong>Reliability first</strong>
+              <span>Design for failure, monitor what matters, and reduce toil.</span>
+            </li>
+            <li>
+              <strong>Self-hosted by default</strong>
+              <span>Local-first tools, private data, and systems you control.</span>
+            </li>
+            <li>
+              <strong>Always learning</strong>
+              <span>Sharing the journey through code, experiments, and side projects.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="projects">
+      <div class="section-inner">
+        <div class="section-header">
+          <p class="eyebrow">Projects</p>
+          <h2>Selected work</h2>
+        </div>
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-meta">
+              <span class="tag">Web</span>
+              <span class="tag">GitHub Pages</span>
+            </div>
+            <h3>Portfolio</h3>
+            <p>
+              This site — a lightweight, static portfolio deployed through GitHub Actions
+              and tuned for fast loads on any device.
+            </p>
+            <a class="project-link" href="https://github.com/Damknee/Portfolio" target="_blank" rel="noopener noreferrer">
+              View repository
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+            </a>
+          </article>
+
+          <article class="project-card">
+            <div class="project-meta">
+              <span class="tag">Game</span>
+              <span class="tag">Canvas</span>
+            </div>
+            <h3>Flappy Bird</h3>
+            <p>
+              A responsive browser remake of the classic — touch-friendly controls,
+              rotation handling for mobile, and a tight arcade loop built on canvas.
+            </p>
+            <a class="project-link" href="https://github.com/Damknee/" target="_blank" rel="noopener noreferrer">
+              See on GitHub
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+            </a>
+          </article>
+
+          <article class="project-card">
+            <div class="project-meta">
+              <span class="tag">IoT</span>
+              <span class="tag">Data</span>
+            </div>
+            <h3>IoT data platform</h3>
+            <p>
+              Experimentation around ingesting, storing, and querying sensor data —
+              exploring practical patterns for connected devices at small scale.
+            </p>
+            <a class="project-link" href="https://github.com/Damknee/" target="_blank" rel="noopener noreferrer">
+              Explore code
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="section-inner">
+        <div class="section-header">
+          <p class="eyebrow">Skills</p>
+          <h2>What I work with</h2>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-group">
+            <h3>Infrastructure</h3>
+            <ul>
+              <li>Linux administration</li>
+              <li>Docker &amp; containers</li>
+              <li>Networking &amp; DNS</li>
+              <li>CI/CD pipelines</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h3>Development</h3>
+            <ul>
+              <li>Python &amp; shell scripting</li>
+              <li>Web (HTML, CSS, JS)</li>
+              <li>APIs &amp; automation</li>
+              <li>Git &amp; GitHub Actions</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h3>Focus areas</h3>
+            <ul>
+              <li>Self-hosted services</li>
+              <li>Monitoring &amp; reliability</li>
+              <li>Internal tooling</li>
+              <li>Technical documentation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-contact" id="contact">
+      <div class="section-inner contact-panel">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>Let's connect</h2>
+          <p class="contact-copy">
+            Open to conversations about infrastructure, automation, and building
+            tools that make engineering teams faster.
+          </p>
+        </div>
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="mailto:danielthompson5611@gmail.com">Email me</a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/danielhowardthompson/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Daniel Thompson</p>
+    <a href="#top">Back to top</a>
+  </footer>
+
+  <script src="js/jquery.particleground.js"></script>
+  <script src="js/demo.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
