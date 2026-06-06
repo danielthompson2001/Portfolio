@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IoT Data Platform — Daniel Thompson</title>
+  <meta name="description" content="A simulated IoT sensor dashboard demonstrating real-time data ingestion, visualization, and device monitoring patterns.">
+  <link rel="icon" type="image/png" href="../../assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="back-link" href="../../index.html#projects">&larr; Back to portfolio</a>
+
+  <header class="dash-header">
+    <div>
+      <p class="eyebrow">Demo · Simulated data</p>
+      <h1>IoT Data Platform</h1>
+      <p class="lede">
+        A front-end dashboard that simulates an ingestion pipeline for connected
+        sensor devices — live readings, historical trends, and device health,
+        all generated client-side to demonstrate the UX of a real telemetry platform.
+      </p>
+    </div>
+    <div class="status-pill">
+      <span class="dot" id="connection-dot"></span>
+      <span id="connection-label">Streaming live data</span>
+    </div>
+  </header>
+
+  <main class="dash-grid">
+    <section class="card metric-card" aria-label="Temperature">
+      <div class="metric-head">
+        <span class="metric-label">Temperature</span>
+        <span class="metric-device">sensor-01 · greenhouse</span>
+      </div>
+      <div class="metric-value"><span id="temp-value">--</span><span class="unit">°C</span></div>
+      <canvas class="spark" id="temp-chart" width="300" height="80" aria-hidden="true"></canvas>
+    </section>
+
+    <section class="card metric-card" aria-label="Humidity">
+      <div class="metric-head">
+        <span class="metric-label">Humidity</span>
+        <span class="metric-device">sensor-02 · greenhouse</span>
+      </div>
+      <div class="metric-value"><span id="humidity-value">--</span><span class="unit">%</span></div>
+      <canvas class="spark" id="humidity-chart" width="300" height="80" aria-hidden="true"></canvas>
+    </section>
+
+    <section class="card metric-card" aria-label="Air quality index">
+      <div class="metric-head">
+        <span class="metric-label">Air quality</span>
+        <span class="metric-device">sensor-03 · workshop</span>
+      </div>
+      <div class="metric-value"><span id="aqi-value">--</span><span class="unit">AQI</span></div>
+      <canvas class="spark" id="aqi-chart" width="300" height="80" aria-hidden="true"></canvas>
+    </section>
+
+    <section class="card devices-card" aria-label="Device list">
+      <div class="card-title">
+        <h2>Devices</h2>
+        <span class="muted" id="device-count">0 online</span>
+      </div>
+      <ul class="device-list" id="device-list"></ul>
+    </section>
+
+    <section class="card log-card" aria-label="Ingestion log">
+      <div class="card-title">
+        <h2>Ingestion log</h2>
+        <span class="muted">live event stream</span>
+      </div>
+      <ul class="log-list" id="log-list"></ul>
+    </section>
+  </main>
+
+  <footer class="dash-footer">
+    <p>
+      All data on this page is generated in your browser to illustrate the platform's UI —
+      no real devices or backend are connected.
+    </p>
+  </footer>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

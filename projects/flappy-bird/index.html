@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Flappy Bird — Daniel Thompson</title>
+  <meta name="description" content="A responsive browser remake of Flappy Bird built with HTML canvas.">
+  <link rel="icon" type="image/png" href="../../assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Syne:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="back-link" href="../../index.html#projects">&larr; Back to portfolio</a>
+
+  <main class="game-wrap">
+    <h1>Flappy Bird</h1>
+    <p class="subtitle">Tap, click, or press <kbd>Space</kbd> to flap. Don't hit the pipes.</p>
+
+    <div class="stage">
+      <canvas id="game" width="400" height="600" aria-label="Flappy Bird game canvas"></canvas>
+
+      <div class="overlay" id="start-overlay">
+        <div class="panel">
+          <h2>Ready?</h2>
+          <p>Tap / click / press space to start flapping</p>
+          <button class="btn" id="start-btn" type="button">Start game</button>
+        </div>
+      </div>
+
+      <div class="overlay hidden" id="gameover-overlay">
+        <div class="panel">
+          <h2>Game over</h2>
+          <p class="score-line">Score: <span id="final-score">0</span></p>
+          <p class="score-line muted">Best: <span id="best-score">0</span></p>
+          <button class="btn" id="retry-btn" type="button">Play again</button>
+        </div>
+      </div>
+
+      <div class="hud">
+        <span id="hud-score">0</span>
+      </div>
+    </div>
+
+    <p class="hint">Built with vanilla JS &amp; the canvas API — touch, mouse, and keyboard friendly.</p>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>
